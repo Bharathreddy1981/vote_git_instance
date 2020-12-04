@@ -40,7 +40,7 @@ def generate_token(db, final_data, jsondata):
             if len(log_list) == 0:
                 return { "error" : "invalid user or password"}
             else:
-                return {"token" : token, "id" :log_list[0]["account_id"], "candidates":"list of candidates present in the voting poll.if you want to vote for BJP type 1.if you want to vote for CONGRESS type 2.if you want to vote for TRS type 3."}
+                return {"token" : token, "id" :log_list[0]["account_id"]}
         else:
             return {"error": "invalid  password"}
     else:
