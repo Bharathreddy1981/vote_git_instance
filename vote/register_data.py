@@ -1,7 +1,6 @@
 
 from uuid import uuid4
 def inserting(db, data, encrypted_password):
-    print(data)
     name = data["name"]
     phone = data["phone"]
     email = data["email"]

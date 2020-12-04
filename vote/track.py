@@ -1,8 +1,6 @@
 
 
 def total_votes(db, updated_value, updated_token, enter):
-    #updated_value = ' ' + value + ' '
-    #updated_token = ' ' + token + ' '
     cursor = db.cursor()
 
     query_id = "select * from election  where account_id = '" + str(updated_value) + "'"
@@ -13,9 +11,6 @@ def total_votes(db, updated_value, updated_token, enter):
         k = {"account_id": i[0], "name": i[1], "phone": i[2], "email": i[3], "password": i[4], "role_name": i[5],
                  "token": i[6], "party_name":i[7]}
         login_list.append(k)
-    #print(login_list)
-
-
 
     query = "select * from election  where token = '" + str(updated_token) + "'"
     cursor.execute(query)
@@ -25,7 +20,6 @@ def total_votes(db, updated_value, updated_token, enter):
         k = {"account_id": i[0], "name": i[1], "phone": i[2], "email": i[3], "password": i[4], "role_name": i[5],
                  "token": i[6], "party_name":i[7]}
         login_list11.append(k)
-    #print(login_list11)
 
 
     if len(login_list) == 0:

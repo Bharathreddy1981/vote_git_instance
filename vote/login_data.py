@@ -10,8 +10,6 @@ def generate_token(db, final_data, jsondata):
 
     email1 = jsondata["email"]
     passwd1 = jsondata["password"]
-    #print(final_data)
-    #password_check_final = password.pass_check(final_data[0]["password"], passwd1)  # generate true or false
     if len(final_data) == 0:
         return {"error": "invalid email"}
 
