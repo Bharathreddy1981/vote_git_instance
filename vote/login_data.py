@@ -24,7 +24,7 @@ def generate_token(db, final_data, jsondata):
                 )
             token = token1.decode('UTF-8')
             cursor = db.cursor()
-            query = "UPDATE election SET token = '" + str(token) + "'"
+            query = "UPDATE election SET token = '" + str(token) + "' where email ='" + str(email1) + "' "
 
             cursor.execute(query)
             db.commit()
