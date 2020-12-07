@@ -32,7 +32,7 @@ def votes(updated_value, db, updated_token, jsondata):
 
         cursor = db.cursor()
         try:
-            query121 = "UPDATE election SET party_name = ' " + str(bjp) + " '"
+            query121 = "UPDATE election SET party_name = ' " + str(bjp) + " ' where email =' " + str(login_list[0]["email"]) + " ' "
             cursor.execute(query121)
             db.commit()
         except:
