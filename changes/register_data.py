@@ -25,7 +25,7 @@ def enter(db, data, encrypted_password):
         cursor.execute(query)
         db.commit()
     except Exception as e:
-        return {"value": "data already exists "},e
+        return {"value": e}
 
 
     return {"value": "data registerd sucessfully"}
