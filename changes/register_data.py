@@ -27,7 +27,7 @@ def enter(db, data, encrypted_password):
 
         return {"value": "data registerd sucessfully"}
     except Exception as e:
-        return {"error": str(e).remove("(1062","").remove("\"","").remove("'6587985578' ","").remove("('vote.phone'","").remove("for key","")}
+        return {"error": str(e).replace("(1062","").replace("\"","").replace("'6587985578' ","").replace("('vote.phone'","").replace("for key","")}
 
 
 
