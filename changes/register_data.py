@@ -19,13 +19,17 @@ def enter(db, data, encrypted_password):
     elif len(passwd) <= 6 or len(passwd) >= 20:
         return {'Error': 'password range between 7-20'}
 
+    try:
+        cursor = db.cursor()
+        query = "insert into vote (account_id, name, phone, email, password, role_name) values ('" + str(uuid4()) + "', '" + str(name) + "','" + str(phone) + "','" + str(email) + "','" + str(encrypted_password) + "','" + str(role_name) + "')"
+        cursor.execute(query)
+        db.commit()
 
-    cursor = db.cursor()
-    query = "insert into vote (account_id, name, phone, email, password, role_name) values ('" + str(uuid4()) + "', '" + str(name) + "','" + str(phone) + "','" + str(email) + "','" + str(encrypted_password) + "','" + str(role_name) + "')"
-    cursor.execute(query)
-    db.commit()
+        return {"value": "data registerd sucessfully"}
+    except Exception as e:
 
-    return {"value": "data registerd sucessfully"}
+        print(e)
+        
 
 
 
