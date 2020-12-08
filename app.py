@@ -1,6 +1,7 @@
 
 from vote import database_connection, password, register_data, login_data, getting_register_data, voting, track, admin, list
 from flask import Flask, jsonify, request
+from changes import password_change, register_data, log_in, getting, database_conn, password_encrypt,email_phone
 
 
 app = Flask(__name__)
