@@ -27,9 +27,9 @@ def enter(db, data, encrypted_password):
 
         return {"value": "data registerd sucessfully"}
     except Exception as e:
-
-        print(e)
+        return {"error": str(e)}
         
+
 
 
 
