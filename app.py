@@ -57,6 +57,42 @@ def result(values):
     return jsonify(resulted)
 
 
+@app.route ("/register", methods=['POST'])
+def reg():
+    json_data = request.get_json()
+    db = database_conn.data()
+    encrypted_password = password_encrypt.pass_encrypt(json_data)
+    value = register_data.enter(db, json_data, encrypted_password)
+    return jsonify(value)
+
+
+@app.route("/log_in", methods=['POST'])
+def token ():
+    json_data = request.get_json()
+    db = database_conn.data()
+    final_data = getting.login_info(db, json_data)
+    log_data = log_in.generate(db, final_data, json_data)
+    return jsonify(log_data)
+
+
+@app.route("/password/account_id=<value>", methods=['POST'])
+def change(value):
+    json_data = request.get_json()
+    token = request.headers["log_key"]
+    db = database_conn.data()
+    change = password_change.change_password(value, token, db, json_data)
+    return jsonify(change)
+
+
+@app.route("/emailandphone/account_id=<value>", methods=['POST'])
+def name(value):
+    json_data = request.get_json()
+    token = request.headers["log_key"]
+    db = database_conn.data()
+    changing = email_phone.rolename(value, token, db, json_data)
+    return jsonify(changing)
+
+
 
 if(__name__=="__main__"):
     app.run(host='0.0.0.0')
