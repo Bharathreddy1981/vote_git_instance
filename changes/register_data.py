@@ -24,9 +24,10 @@ def enter(db, data, encrypted_password):
         query = "insert into vote (account_id, name, phone, email, password, role_name) values ('" + str(uuid4()) + "', '" + str(name) + "','" + str(phone) + "','" + str(email) + "','" + str(encrypted_password) + "','" + str(role_name) + "')"
         cursor.execute(query)
         db.commit()
+        return {"value": "data registerd sucessfully"}
     except Exception as e:
         return {"value": e}
 
 
-    return {"value": "data registerd sucessfully"}
+
 
