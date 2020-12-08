@@ -26,7 +26,7 @@ def enter(db, data, encrypted_password):
         db.commit()
         return {"value": "data registerd sucessfully"}
     except Exception as e:
-        return {'message': 'Something went wrong','error': e}, 500
+        return {'message': 'Something went wrong','error': e}
 
 
 
