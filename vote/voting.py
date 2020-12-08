@@ -24,7 +24,7 @@ def votes(updated_value, db, updated_token, jsondata):
         return {'Error': "invalid voter_id "}
     elif len(login_list11) == 0:
         return {'Error': 'invalid token'}
-    
+
 
     bjp = jsondata["1"]
 
