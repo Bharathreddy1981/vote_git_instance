@@ -36,8 +36,6 @@ def change_password(value, token, db, json_data):
         return {'Error': 'invalid token'}
 
     password = login_list[0]["password"]
-    print(password)
-    print(login_list[0]["name"])
 
     if login_list[0]["email"] == login_list11[0]["email"] and login_list[0]["account_id"] == login_list11[0]["account_id"]:
 
@@ -45,7 +43,6 @@ def change_password(value, token, db, json_data):
         if password_check_final == True:
             if new == reenter:
                 new_encrpyt = password_encrypt.pass1_encrypt(new)
-                print(new_encrpyt)
                 cursor = db.cursor()
                 query11 = "UPDATE vote SET password = '" + str(new_encrpyt) + "' where name = '" + str(login_list[0]["name"]) + "' "
                 cursor.execute(query11)
@@ -56,7 +53,6 @@ def change_password(value, token, db, json_data):
                     k = {"account_id": i[0], "name": i[1], "phone": i[2], "email": i[3], "password": i[4],
                      "role_name": i[5], "token": i[6]}
                     log_list.append(k)
-                    print(log_list)
             else:
                 return {"error": " password enter does not match each other"}
         else:

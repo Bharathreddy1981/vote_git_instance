@@ -3,7 +3,7 @@
 from uuid import uuid4
 def enter(db, data, encrypted_password):
 
-    print(data)
+
     name = data["name"]
     phone = data["phone"]
     email = data["email"]
@@ -27,7 +27,8 @@ def enter(db, data, encrypted_password):
 
         return {"value": "data registerd sucessfully"}
     except Exception as e:
-        return {"error": str(e).replace("(1062","").replace("\"","").replace("('vote.phone'","").replace("for key","").replace("'vote.phone'","").replace(",","").replace(" )","")}
+        return {"error": str(e).split()[1].replace("\"", "") + str(e).split()[-1].replace("vote.", "").replace(")","").replace("\"", "")}
+
 
 
 

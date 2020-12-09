@@ -43,15 +43,14 @@ def rolename(value, token, db, data):
             query = " UPDATE vote SET email = ('" + str(email) + "'), phone = ('" + str(phone) + "'), name =('" + str(name) + "'), role_name =('" + str(role) + "')  where account_id = '" + str(value) + "'"
             cursor.execute(query)
             db.commit()
+            return {"value": "email,name,phone, role registered sucessfully"}
 
-        except:
-            return {'Error': "email  and phone already exists "}
-
+        except Exception as e:
+            return {"error": str(e).split()[1].replace("\"", "") + str(e).split()[-1].replace("vote.", "").replace(")","").replace("\"", "")}
     else:
         return {" vote ": " enter the valid credentilas "}
 
 
-    return {"value": "changed your name, email, rolename and phonenumber sucessfully"}
 
 
 

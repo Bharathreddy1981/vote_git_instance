@@ -12,8 +12,7 @@ def generate(db, final_data, jsondata):
 
     email1 = jsondata["email"]
     passwd1 = jsondata["password"]
-    #print(final_data)
-    #password_check_final = password.pass_check(final_data[0]["password"], passwd1)  # generate true or false
+
     if len(final_data) == 0:
         return {"error": "invalid email"}
 
@@ -51,6 +50,6 @@ def generate(db, final_data, jsondata):
         return {"error": "invalid email"}
 
 
-    return make_response('Could not verify!', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
 
 

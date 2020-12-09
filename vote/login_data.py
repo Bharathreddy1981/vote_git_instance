@@ -47,7 +47,7 @@ def generate_token(db, final_data, jsondata):
         return {"error": "invalid email"}
 
 
-    return make_response('Could not verify!', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
 
 
 
